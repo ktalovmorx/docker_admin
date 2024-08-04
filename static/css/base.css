@@ -1,0 +1,92 @@
+body{
+    font-family: Libre Baskerville !important;
+    /*background-image: url("/static/img/bg1.jpg");
+    background-attachment: fixed;
+    background-size: cover;*/
+    background-color: #181819 !important;
+}
+
+.box{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding:5px;
+    margin:2px;
+}
+
+.data{
+    font-size: 12px;
+}
+
+.badge{
+    line-height: 0.5 !important;
+}
+
+.table th {
+    position: sticky;
+    top: 0;
+    background: white; /* Fondo blanco para las cabeceras */
+    z-index: 2; /* Para asegurarse de que esté sobre el contenido */
+}
+
+.resume {
+    font-size:16px !important;
+}
+
+.instance_container{
+    display:grid;
+    justify-content:center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+    padding:5px;
+    margin:0px;
+}
+
+.instance{
+    cursor:pointer;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding:5px;
+    margin:5px;
+    background-color: white;
+    opacity: 1;
+}
+
+.title{
+    font-size:12px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+h3{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
+    letter-spacing: 4px !important;
+}
+
+.profit{
+    font-size:10px !important;
+    /*color:black !important;*/
+    /*background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);*/
+    background: linear-gradient(45deg, red,  black, green);
+    background-size: 400%;
+    transition: background 0.3s ease-in-out;
+    animation: rainbow 5s linear infinite;
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.rainbow-button:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.ini_label{
+    color:green;
+    font-weight: bold;
+} 

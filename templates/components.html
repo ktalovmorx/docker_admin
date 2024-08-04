@@ -26,15 +26,6 @@
     </div>
 {% endmacro %}
 
-{% macro chart_renderer(chart_id, value_label, value_data, value_title, value_type, with_fill) %}
-    <div>
-        <div class="d-flex align-items-center justify-content-between">
-            <button class="btn btn-sm btn-primary" onclick="renderChart(chart_id={{chart_id}}, value_label={{value_label}}, value_data={{value_data}}, value_title={{value_title}}, value_type={{value_type}}, with_fill={{with_fill}})">UPLOAD</button>
-            <span class="text-dark fw-bold" style="font-family: 'Roboto';font-size:12px">{{value_title.replace("'","") | upper}}</span>
-        </div>
-        <canvas id="{{chart_id}}"></canvas>
-    </div>
-{% endmacro %}
 
 {% macro hello(name) %}
     <p>Hello, {{ name }}!</p>

@@ -1,0 +1,14 @@
+.kpicard{
+    transition: transform 1s ease;
+    border-radius: 8px;
+    cursor:pointer;
+}
+
+.kpicard:hover{
+    transform: scale(1.02) !important;
+    border-bottom: 2px double rgb(247, 187, 5);
+}
+
+.toast{
+    box-shadow:  0.1rem 0.5rem rgba(0, 0, 0, 0.15) !important;
+}

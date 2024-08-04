@@ -40,5 +40,65 @@ def list_images():
         })
     return jsonify(image_list)
 
+@app.route('/run_instance', methods=['POST'])
+def run_instance():
+   '''
+   Ejecuta una instancia
+
+   parameters
+   ----------
+      :param self : object
+               description ->
+   returns
+   ----------
+      None
+   '''
+   data = request.get_json()
+   instance_name = data['instance_name']
+
+   return jsonify({'response':True, 'message':f'Instance {instance_name} started successfully'})
+
+@app.route('/stop_instance', methods=['POST'])
+def stop_instance():
+   '''
+   Detiene una instancia
+
+   parameters
+   ----------
+      :param self : object
+               description ->
+   returns
+   ----------
+      None
+
+   '''
+   data = request.get_json()
+   instance_name = data['instance_name']
+
+   return jsonify({'response':True, 'message':f'Instance {instance_name} stopped successfully'})
+
+@app.route('/restart_instance', methods=['POST'])
+def restart_instance():
+   '''
+   Detiene una instancia
+
+   parameters
+   ----------
+      :param self : object
+               description ->
+   returns
+   ----------
+      None
+
+   '''
+   data = request.get_json()
+   instance_name = data['instance_name']
+
+   return jsonify({'response':True, 'message':f'Instance {instance_name} restarted successfully'})
+
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
