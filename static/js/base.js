@@ -13,12 +13,12 @@ function run_instance(name){
       .then(data => {
           //document.getElementById('report_win_btn').disabled = true;
           //document.getElementById('report_loss_btn').disabled = true;
-          /*Swal.fire({
+          Swal.fire({
             title: 'Recibido',
             text: data.message,
             icon: "info",
             confirmButtonText: "OK"
-          });*/
+          });
           /*Actualizar monto a colocar para que administrador sepa lo que ocurre*/
           console.log(data);
       }).catch(error => {
@@ -42,12 +42,12 @@ function stop_instance(name){
       .then(data => {
           //document.getElementById('report_win_btn').disabled = true;
           //document.getElementById('report_loss_btn').disabled = true;
-          /*Swal.fire({
+          Swal.fire({
             title: 'Recibido',
             text: data.message,
             icon: "info",
             confirmButtonText: "OK"
-          });*/
+          });
           /*Actualizar monto a colocar para que administrador sepa lo que ocurre*/
           console.log(data);
       }).catch(error => {
@@ -71,12 +71,12 @@ function restart_instance(name){
     .then(data => {
         //document.getElementById('report_win_btn').disabled = true;
         //document.getElementById('report_loss_btn').disabled = true;
-        /*Swal.fire({
+        Swal.fire({
           title: 'Recibido',
           text: data.message,
           icon: "info",
           confirmButtonText: "OK"
-        });*/
+        });
         /*Actualizar monto a colocar para que administrador sepa lo que ocurre*/
         console.log(data);
     }).catch(error => {
