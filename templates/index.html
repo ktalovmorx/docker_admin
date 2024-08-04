@@ -57,8 +57,8 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% if container['status'] == 'running' %}
-                                            {% for container in containers %}
+                                        {% for container in containers %}
+                                            {% if container['status'] == 'running' %}
                                                 <tr>
                                                     <td><span>{{container['id']}}</span></td>
                                                     <td><span>{{container['name']}}</span></td>
@@ -73,8 +73,8 @@
                                                         <button type="button" class="btn btn-info btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="restart_instance(`{{ container['name'] }}`)">restart</button>
                                                     </td>
                                                 </tr>
-                                            {% endfor %}
-                                        {% endif %}
+                                            {% endif %}
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
@@ -111,8 +111,8 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% if container['status'] != 'running' %}
-                                            {% for container in containers %}
+                                        {% for container in containers %}
+                                            {% if container['status'] != 'running' %}
                                                 <tr>
                                                     <td><span>{{container['id']}}</span></td>
                                                     <td><span>{{container['name']}}</span></td>
@@ -127,8 +127,8 @@
                                                         <button type="button" class="btn btn-info btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="restart_instance(`{{ container['name'] }}`)">restart</button>
                                                     </td>
                                                 </tr>
-                                            {% endfor %}
-                                        {% endif %}
+                                            {% endif %}
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
