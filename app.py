@@ -30,59 +30,80 @@ def list_containers():
 
 @app.route('/run_instance', methods=['POST'])
 def run_instance():
-   '''
-   Ejecuta una instancia
+    '''
+    Ejecuta una instancia
 
-   parameters
-   ----------
-      :param self : object
-               description ->
-   returns
-   ----------
-      None
-   '''
-   data = request.get_json()
-   instance_name = data['instance_name']
+    parameters
+    ----------
+        :param self : object
+                description ->
+    returns
+    ----------
+        None
+    '''
+    data = request.get_json()
+    container_name = data['name']
 
-   return jsonify({'response':True, 'message':f'Instance {instance_name} started successfully'})
+    try:
+        container = client.containers.get(container_name)
+        container.start()
+        return jsonify({'response':True, 'message':f'Instance {container_name} started successfully'})
+    except docker.errors.NotFound:
+        return jsonify({'response':True, 'message':f"Contenedor con ID o nombre '{container_name}' no encontrado."})
+    except Exception as e:
+        return jsonify({'response':True, 'message':f"Error al inicializar el contenedor: {str(e)}"})
 
 @app.route('/stop_instance', methods=['POST'])
 def stop_instance():
-   '''
-   Detiene una instancia
+    '''
+    Detiene una instancia
 
-   parameters
-   ----------
-      :param self : object
-               description ->
-   returns
-   ----------
-      None
+    parameters
+    ----------
+        :param self : object
+                description ->
+    returns
+    ----------
+        None
 
-   '''
-   data = request.get_json()
-   instance_name = data['instance_name']
+    '''
+    data = request.get_json()
+    container_name = data['name']
 
-   return jsonify({'response':True, 'message':f'Instance {instance_name} stopped successfully'})
+    try:
+        container = client.containers.get(container_name)
+        container.stop()
+        return jsonify({'response':True, 'message':f'Instance {container_name} stopped successfully'})
+    except docker.errors.NotFound:
+        return jsonify({'response':True, 'message':f"Contenedor con ID o nombre '{container_name}' no encontrado."})
+    except Exception as e:
+        return jsonify({'response':True, 'message':f"Error al detener el contenedor: {str(e)}"})
 
 @app.route('/restart_instance', methods=['POST'])
 def restart_instance():
-   '''
-   Detiene una instancia
+    '''
+    Detiene una instancia
 
-   parameters
-   ----------
-      :param self : object
-               description ->
-   returns
-   ----------
-      None
+    parameters
+    ----------
+        :param self : object
+                description ->
+    returns
+    ----------
+        None
 
-   '''
-   data = request.get_json()
-   instance_name = data['instance_name']
+    '''
+    data = request.get_json()
+    container_name = data['name']
 
-   return jsonify({'response':True, 'message':f'Instance {instance_name} restarted successfully'})
+    try:
+        container = client.containers.get(container_name)
+        container.restart()
+        return jsonify({'response':True, 'message':f'Instance {container_name} restarted successfully'})
+    except docker.errors.NotFound:
+        return jsonify({'response':True, 'message':f"Contenedor con ID o nombre '{container_name}' no encontrado."})
+    except Exception as e:
+        return jsonify({'response':True, 'message':f"Error al reiniciar el contenedor: {str(e)}"})
 
 @app.route('/', methods=['GET'])
 def index():

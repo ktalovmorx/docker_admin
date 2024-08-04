@@ -1,7 +1,7 @@
-function run_instance(instance_name){
-    alert(`Running ${instance_name}...`);
+function run_instance(name){
+    alert(`Running ${name}...`);
 
-    const data = {'instance_name':instance_name};
+    const data = {'name':name};
     fetch('/run_instance',{
         method: 'POST',
         headers: {
@@ -27,10 +27,10 @@ function run_instance(instance_name){
       });
 }
 
-function stop_instance(instance_name){
-    alert(`Stopping ${instance_name}...`);
+function stop_instance(name){
+    alert(`Stopping ${name}...`);
 
-    const data = {'instance_name': instance_name};
+    const data = {'name': name};
     fetch('/stop_instance',{
         method: 'POST',
         headers: {
@@ -56,10 +56,10 @@ function stop_instance(instance_name){
       });
 }
 
-function restart_instance(instance_name){
-  alert(`Restarting ${instance_name}...`);
+function restart_instance(name){
+  alert(`Restarting ${name}...`);
 
-  const data = {'instance_name': instance_name};
+  const data = {'name': name};
   fetch('/restart_instance',{
       method: 'POST',
       headers: {
