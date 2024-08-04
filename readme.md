@@ -28,13 +28,24 @@ cd docker_admin
 sudo ufw allow 68/tcp
 
 En primer plano
-gunicorn --workers 1 --bind 0.0.0.0:5000 wsgi:application
+gunicorn --workers 1 --timeout 120 --bind 0.0.0.0:5000 wsgi:application
 
 En segundo Plano
-gunicorn --daemon --workers 1 --bind 0.0.0.0:5000 wsgi:application
+gunicorn --daemon --workers 1 --timeout 120 --bind 0.0.0.0:5000 wsgi:application
 
 Numero Workers = 2 * Total_de_nucles_CPU + 1
 Para mi caso utilizo solo 1 porque esto es un proyecto personal
+
+```
+
+<h2> Prueba de carga con Apache Bench</h2>
+
+```
+ab -n 1000 -c 50 http://127.0.0.1:8000/
+
+-n 1000: Envía 1000 solicitudes en total.
+-c 50: Usa 50 conexiones simultáneas.
+
 ```
 
 <h3>José Ernesto Morales Ventura | San Cristóbal | República Dominicana</h3>
