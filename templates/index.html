@@ -40,7 +40,7 @@
                     </div>
                 </div>
         
-                <!-- TABLA DE INSTANCIAS -->
+                <!-- ACTIVE CONTAINERS -->
                 <div class="container-fluid" style="margin:0px">
                     <div class="row box rounded">
                         <div class="instance rounded col-lg-12 col-sm-12 col-md-4 m-0 p-0">
@@ -57,22 +57,24 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% for container in containers %}
-                                            <tr>
-                                                <td><span>{{container['id']}}</span></td>
-                                                <td><span>{{container['name']}}</span></td>
-                                                <td><span>{{container['status']}}</span></td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="run_instance(`{{ container['name'] }}`)">run</button>
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-danger btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="stop_instance(`{{ container['name'] }}`)">run</button>
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-info btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="restart_instance(`{{ container['name'] }}`)">restart</button>
-                                                </td>
-                                            </tr>
-                                        {% endfor %}
+                                        {% if container['status'] == 'running' %}
+                                            {% for container in containers %}
+                                                <tr>
+                                                    <td><span>{{container['id']}}</span></td>
+                                                    <td><span>{{container['name']}}</span></td>
+                                                    <td><span>{{container['status']}}</span></td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="run_instance(`{{ container['name'] }}`)">run</button>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-danger btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="stop_instance(`{{ container['name'] }}`)">run</button>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-info btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="restart_instance(`{{ container['name'] }}`)">restart</button>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        {% endif %}
                                     </tbody>
                                 </table>
                             </div>
@@ -80,7 +82,7 @@
                     </div>
                 </div>
         
-                <!-- TITLE -->
+                <!-- INACTIVE CONTAINERS -->
                 <div style="margin-left:2px;margin-bottom:5px;width:100%">
                     <div class="col m-0 p-0" style="border-left-color:green;border-left-style:solid;border-left-width:4px;">
                         <div class="shadow-sm border m-1 p-2 bg-white">
@@ -94,6 +96,44 @@
         
                 <!-- INFO -->
                 <div class="container-fluid" style="margin:0px">
+                    <div class="row box rounded">
+                        <div class="instance rounded col-lg-12 col-sm-12 col-md-4 m-0 p-0">
+                            <div class="table-responsive rounded" style="max-height:200px;opacity: 0.9;">
+                                <table class="table table-hover" style="font-size:12px">
+                                    <thead class="table-primary">
+                                        <tr>
+                                            <th>id</th>
+                                            <th>name</th>
+                                            <th>status</th>
+                                            <th>run</th>
+                                            <th>stop</th>
+                                            <th>restart</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% if container['status'] != 'running' %}
+                                            {% for container in containers %}
+                                                <tr>
+                                                    <td><span>{{container['id']}}</span></td>
+                                                    <td><span>{{container['name']}}</span></td>
+                                                    <td><span>{{container['status']}}</span></td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="run_instance(`{{ container['name'] }}`)">run</button>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-danger btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="stop_instance(`{{ container['name'] }}`)">run</button>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-info btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="restart_instance(`{{ container['name'] }}`)">restart</button>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        {% enddif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
