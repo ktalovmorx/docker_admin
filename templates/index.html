@@ -64,13 +64,13 @@
                                                     <td><span>{{container['name']}}</span></td>
                                                     <td><span>{{container['status']}}</span></td>
                                                     <td>
-                                                        <button type="button" class="btn btn-success btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="run_instance(`{{ container['name'] }}`)">run</button>
+                                                        <button type="button" class="btn btn-success btn-sm rounded" style="opacity:1;width:65px" onclick="run_instance(`{{ container['name'] }}`)">run</button>
                                                     </td>
                                                     <td>
-                                                        <button type="button" class="btn btn-danger btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="stop_instance(`{{ container['name'] }}`)">run</button>
+                                                        <button type="button" class="btn btn-danger btn-sm rounded" style="opacity:1;width:65px" onclick="stop_instance(`{{ container['name'] }}`)">run</button>
                                                     </td>
                                                     <td>
-                                                        <button type="button" class="btn btn-info btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="restart_instance(`{{ container['name'] }}`)">restart</button>
+                                                        <button type="button" class="btn btn-info btn-sm rounded" style="opacity:1;width:65px" onclick="restart_instance(`{{ container['name'] }}`)">restart</button>
                                                     </td>
                                                 </tr>
                                             {% endif %}
