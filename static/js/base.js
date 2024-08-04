@@ -1,7 +1,6 @@
 function run_instance(name){
-    let c = confirm('Seguro que desea iniciar la instancia');
+    let c = confirm('Seguro que desea iniciar la instancia?');
     if (c){
-      alert(`Running ${name}...`);
       const data = {'name':name};
       fetch('/run_instance',{
           method: 'POST',
@@ -24,9 +23,8 @@ function run_instance(name){
 }
 
 function stop_instance(name){
-    let c = confirm('Seguro que desea iniciar la instancia');
+    let c = confirm('Seguro que desea detener la instancia?');
     if (c){
-      alert(`Stopping ${name}...`);
       const data = {'name': name};
       fetch('/stop_instance',{
           method: 'POST',
@@ -49,9 +47,8 @@ function stop_instance(name){
 }
 
 function restart_instance(name){
-  alert(`Restarting ${name}...`);
+  let c = confirm('Seguro que desea reiniciar la instancia?');
   if (c){
-    alert(`Stopping ${name}...`);
     const data = {'name': name};
     fetch('/restart_instance',{
         method: 'POST',
