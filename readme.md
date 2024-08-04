@@ -19,7 +19,16 @@ cd /root
 python3 -m venv env3
 source env3/bin/activate
 pip3 install flask docker
-mkdir docker_admin
+pip3 install gunicorn
+
+git clone https://github.com/ktalovmorx/docker_admin.git
+cd docker_admin
+
+En primer plano
+gunicorn --workers 4 --bind 0.0.0.0:5000 wsgi:application
+
+En segundo Plano
+gunicorn --daemon --workers 4 --bind 0.0.0.0:5000 wsgi:application
 ```
 
 <h3>José Ernesto Morales Ventura | San Cristóbal | República Dominicana</h3>
