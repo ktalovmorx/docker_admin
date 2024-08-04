@@ -40,7 +40,7 @@
                     </div>
                 </div>
         
-                <!-- LAYERS -->
+                <!-- TABLA DE INSTANCIAS -->
                 <div class="container-fluid" style="margin:0px">
                     <div class="row box rounded">
                         <div class="instance rounded col-lg-12 col-sm-12 col-md-4 m-0 p-0">
@@ -63,152 +63,19 @@
                                                 <td><span>{{instance['name']}}</span></td>
                                                 <td><span>{{instance['status']}}</span></td>
                                                 <td>
-                                                    <button type="button" class="btn btn-link btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="run_instance(`{{ instance['name'] }}`)">run</button>
+                                                    <button type="button" class="btn btn-success btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="run_instance(`{{ instance['name'] }}`)">run</button>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-link btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="stop_instance(`{{ instance['name'] }}`)">run</button>
+                                                    <button type="button" class="btn btn-danger btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="stop_instance(`{{ instance['name'] }}`)">run</button>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-link btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="restart_instance(`{{ instance['name'] }}`)">run</button>
+                                                    <button type="button" class="btn btn-info btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="restart_instance(`{{ instance['name'] }}`)">restart</button>
                                                 </td>
                                             </tr>
                                         {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
-                            {{ component.HR(bgcolor="#181819",color="#181819") }}
-                            <div class="table-responsive rounded" style="max-height:200px;opacity: 0.9;">
-                                <table class="table table-hover" style="font-size:12px">
-                                    <thead class="table-primary">
-                                        <tr>
-                                            <!--th>row</th>
-                                            <th>id</th>
-                                            <th>order_id</th-->
-                                            <th><span class="badge bg-danger text-center" style="margin-left:5px">Loosed orders</span></th>
-                                            <th>Instance</th>
-                                            <!--th>active</th-->
-                                            <th>Invest</th>
-                                            <th>Secuence</th>
-                                            <th>Virtual</th>
-                                            <th>Date</th>
-                                            <th>Expiration</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {% for order in orders %}
-                                            {% if order['status'] in ('loose',) %}
-                                                <tr>
-                                                    <!--td><span>{{order['row']}}</span></td>
-                                                    <td><span>{{order['id']}}</span></td>
-                                                    <td><span>{{order['order_id']}}</span></td-->
-                                                    <td>
-                                                        {% if order['status'] == 'pending' %}
-                                                            <span class="badge bg-warning">{{order['status']}}</span>
-                                                        {% elif order['status'] == 'loose'%}
-                                                            <span class="badge bg-danger">{{order['status']}}</span>
-                                                        {% elif order['status'] == 'win'%}
-                                                            <span class="badge bg-success">{{order['status']}}</span>
-                                                        {% else %}
-                                                            <span class="badge bg-secondary">{{order['status']}}</span>
-                                                        {% endif %}
-                                                    </td>
-                                                    <td>
-                                                        <span>{{order['instance']}}</span>
-                                                    </td>
-                                                    <!--td>
-                                                        <span style="font-size:8px !important">{{order['active']}}</span>
-                                                    </td-->
-                                                    <td>
-                                                        <span>$ {{order['amount'] | round(2)}}</span>
-                                                    </td>
-                                                    <td>
-                                                        <span>{{order['secuence']}}</span>
-                                                    </td>
-                                                    <td>
-                                                        {% if order['virtual'] %}
-                                                            <span class="badge bg-success">{{order['virtual']}}</span>
-                                                        {% else %}
-                                                            <span>-</span>
-                                                        {% endif %}
-                                                    </td>
-                                                    <td>
-                                                        <span>{{order['date_close']}}</span>
-                                                    </td>
-                                                    <td>
-                                                        <span>{{order['expiration']}}</span>
-                                                    </td>
-                                                </tr>
-                                            {% endif %}
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
-                            </div>
-                            {{ component.HR(bgcolor="#181819",color="#181819") }}
-                            <div class="table-responsive rounded" style="max-height:200px;opacity: 0.9;">
-                                <table class="table table-hover" style="font-size:12px">
-                                    <thead class="table-primary">
-                                        <tr>
-                                            <!--th>row</th>
-                                            <th>id</th>
-                                            <th>order_id</th-->
-                                            <th><span class="badge bg-warning text-center" style="margin-left:5px">Pending orders</span></th>
-                                            <th>Instance</th>
-                                            <!--th>active</th-->
-                                            <th>Invest</th>
-                                            <th>Secuence</th>
-                                            <th>Virtual</th>
-                                            <th>Date</th>
-                                            <th>Expiration</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {% for order in orders %}
-                                            {% if order['status'] in ('pending', 'open') %}
-                                                <tr>
-                                                    <!--td><span>{{order['row']}}</span></td>
-                                                    <td><span>{{order['id']}}</span></td>
-                                                    <td><span>{{order['order_id']}}</span></td-->
-                                                    <td>
-                                                        {% if order['status'] == 'pending' %}
-                                                            <span class="badge bg-warning">{{order['status']}}</span>
-                                                        {% elif order['status'] == 'loose'%}
-                                                            <span class="badge bg-danger">{{order['status']}}</span>
-                                                        {% elif order['status'] == 'win'%}
-                                                            <span class="badge bg-success">{{order['status']}}</span>
-                                                        {% else %}
-                                                            <span class="badge bg-secondary">{{order['status']}}</span>
-                                                        {% endif %}
-                                                    </td>
-                                                    <td>
-                                                        <span>{{order['instance']}}</span></td>
-                                                    <!--td>
-                                                        <span style="font-size:8px !important">{{order['active']}}</span>
-                                                    </td-->
-                                                    <td>
-                                                        <span>$ {{order['amount'] | round(2)}}</span>
-                                                    </td>
-                                                    <td>
-                                                        <span>{{order['secuence']}}</span>
-                                                    </td>
-                                                    <td>
-                                                        {% if order['virtual'] %}
-                                                            <span class="badge bg-success">{{order['virtual']}}</span>
-                                                        {% else %}
-                                                            <span>-</span>
-                                                        {% endif %}
-                                                    </td>
-                                                    <td>
-                                                        <span>{{order['date_close']}}</span>
-                                                    </td>
-                                                    <td>
-                                                        <span>{{order['expiration']}}</span>
-                                                    </td>
-                                                </tr>
-                                            {% endif %}
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -218,100 +85,17 @@
                     <div class="col m-0 p-0" style="border-left-color:green;border-left-style:solid;border-left-width:4px;">
                         <div class="shadow-sm border m-1 p-2 bg-white">
                             <div class="d-flex align-items-center justify-content-between">
-                                <h3 class="text-primary fw-bold">KPIs</h3>
+                                <h3 class="text-primary fw-bold">SITES</h3>
                             </div>
                         </div>
                     </div>
                     <span class="badge bg-info rounded-0" style="border-left-color:green;border-left-style:solid;border-left-width:4px;font-size:12px;letter-spacing: 1px;margin-top:5px;color:white;padding:10px">{{formula}}</span>
                 </div>
         
-                <!-- DASHBOARD 1 -->
+                <!-- INFO -->
                 <div class="container-fluid" style="margin:0px">
-                    <div class="row m-0">
-                        <div class="col-lg-12">
-                            <div class="row">
-                                {{ component.kpi_card(value=2659.83, title="Invest", prefix="$") }}
-                                {{ component.kpi_card(value=resume[0]['profit'], title="Profit", prefix="$") }}
-                                {{ component.kpi_card(value=(resume[0]['profit'] / resume[0]['plays']) | round(3), title="Per Entry", prefix="$") }}
-                                {{ component.kpi_card(value=proyection_earn, title="Excess", prefix="$") }}
-                                {{ component.kpi_card(value=weekly, title="Weekly Pro.", prefix="$") }}
-                                {{ component.kpi_card(value=monthly, title="Monthly Pro.", prefix="$") }}
-                                {{ component.kpi_card(value=12, title="Secuences", prefix="") }}
-                                {{ component.kpi_card(value=resume[0]['plays'], title="Plays", prefix="") }}
-                                {{ component.kpi_card(value=kpi_max_secuence[0], title="Higher Sec.", prefix="") }}
-                                {{ component.kpi_card(value=kpi_best_secuence[0], title="Most Efc.", prefix="") }}
-                                {{ component.kpi_card(value=active_days, title="Days", prefix="") }}
-                            </div>
-                        </div>
-                    </div>
                 </div>
-        
-                <!-- TITLE -->
-                <div style="margin-left:2px;margin-bottom:5px;width:100%">
-                    <div class="col m-0 p-0" style="border-left-color:green;border-left-style:solid;border-left-width:4px;">
-                        <div class="shadow-sm border m-1 p-2 bg-white">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <h3 class="text-primary fw-bold">DATA</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
-                <!-- DASHBOARD 2 -->
-                <div class="container-fluid" style="margin:0px">
-                    <div class="row m-0">
-                        <div class="col-lg-12">
-                            <div class="row">
-                                <div class="col-lg-6 col-sm-12 m-0 p-0">
-                                    <div class="shadow-sm border m-1 p-2 bg-white rounded">
-                                        {{ component.chart_renderer(chart_id="1", value_label=['plays', 'win', 'loose'], value_data=[resume[0]['plays'],resume[0]['wins'],resume[0]['looses']], value_title="'Victorias vs Perdidas'", value_type="'bar'", with_fill="false") }}
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-sm-12 m-0 p-0">
-                                    <div class="shadow-sm border m-1 p-2 bg-white rounded">
-                                        {{ component.chart_renderer(chart_id="2", value_label=cumulative_profit, value_data=cumulative_profit, value_title="'Profit'", value_type="'line'", with_fill="true") }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6 col-sm-12 m-0 p-0">
-                                    <div class="shadow-sm border m-1 p-2 bg-white rounded">
-                                        {{ component.chart_renderer(chart_id="3", value_label=win_by_secuence['value_label'], value_data=win_by_secuence['value_data'], value_title="'Victorias x Secuencia'", value_type="'radar'", with_fill="true") }}
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-sm-12 m-0 p-0">
-                                    <div class="shadow-sm border m-1 p-2 bg-white rounded">
-                                        {{ component.chart_renderer(chart_id="4", value_label=loss_by_secuence['value_label'], value_data=loss_by_secuence['value_data'], value_title="'Perdidas x Secuencia'", value_type="'polarArea'", with_fill="true") }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6 col-sm-12 m-0 p-0">
-                                    <div class="shadow-sm border m-1 p-2 bg-white rounded">
-                                        {{ component.chart_renderer(chart_id="5", value_label=win_by_secuence_percents['value_label'], value_data=win_by_secuence_percents['value_data'], value_title="'% Victorias x Secuencia'", value_type="'pie'", with_fill="false") }}
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-sm-12 m-0 p-0">
-                                    <div class="shadow-sm border m-1 p-2 bg-white rounded">
-                                        {{ component.chart_renderer(chart_id="6", value_label=loss_by_secuence_percents['value_label'], value_data=loss_by_secuence_percents['value_data'], value_title="'% Perdidas x Secuencia'", value_type="'pie'", with_fill="false") }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6 col-sm-12 m-0 p-0">
-                                    <div class="shadow-sm border m-1 p-2 bg-white rounded">
-                                        {{ component.chart_renderer(chart_id="7", value_label=layers_trend, value_data=layers_trend, value_title="'Layers Trend'", value_type="'bar'", with_fill="false") }}
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-sm-12 m-0 p-0">
-                                    <div class="shadow-sm border m-1 p-2 bg-white rounded">
-                                        {{ component.chart_renderer(chart_id="8", value_label=layers_trend_rsi, value_data=layers_trend_rsi, value_title="'Layers Trend RSI'", value_type="'line'", with_fill="false") }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
 
@@ -319,5 +103,4 @@
         </div>
     </div>
 
-    
 {% endblock %}
