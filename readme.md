@@ -2,7 +2,7 @@
 -by craazybones- from Softnow
 
 ![Alt text](https://github.com/ktalovmorx/docker_admin/blob/main/static/img/docker_logo.png?raw=true)
-
+![Alt text](https://github.com/ktalovmorx/docker_admin/blob/main/static/img/front_end.png?raw=true)
 
 <h3> Resumen </h3>
 
