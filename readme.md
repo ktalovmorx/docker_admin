@@ -1,4 +1,4 @@
-# Docker Odoo 17.0 With PostgreSQL 15
+# Docker Grafic Controller
 -by Craazybones- from Softnow
 
 ![Alt text](https://github.com/ktalovmorx/docker_admin/blob/main/static/img/docker_logo.png?raw=true)
