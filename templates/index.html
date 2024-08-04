@@ -62,7 +62,7 @@
                                                 <tr>
                                                     <td><span>{{container['id']}}</span></td>
                                                     <td><span>{{container['name']}}</span></td>
-                                                    <td><span>{{container['status']}}</span></td>
+                                                    <td><span>{{container['status'] | upper}}</span></td>
                                                     <td>
                                                         <button type="button" class="btn btn-success btn-sm rounded" style="opacity:1;width:75px" onclick="run_instance(`{{ container['name'] }}`)">RUN</button>
                                                     </td>
@@ -116,7 +116,7 @@
                                                 <tr>
                                                     <td><span>{{container['id']}}</span></td>
                                                     <td><span>{{container['name']}}</span></td>
-                                                    <td><span>{{container['status']}}</span></td>
+                                                    <td><span>{{container['status'] | upper}}</span></td>
                                                     <td>
                                                         <button type="button" class="btn btn-success btn-sm rounded" style="opacity:1;width:75px;margin-top:5px" onclick="run_instance(`{{ container['name'] }}`)">RUN</button>
                                                     </td>
