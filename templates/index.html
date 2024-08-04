@@ -34,7 +34,7 @@
                     <div class="col m-0 p-0" style="border-left-color:green;border-left-style:solid;border-left-width:4px;">
                         <div class="shadow-sm border m-1 p-2 bg-white">
                             <div class="d-flex align-items-center justify-content-between">
-                                <h3 class="text-primary fw-bold">INSTANCES</h3>
+                                <h3 class="text-primary fw-bold">CONTAINERS</h3>
                             </div>
                         </div>
                     </div>
@@ -57,19 +57,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% for instance in instances %}
+                                        {% for container in containers %}
                                             <tr>
-                                                <td><span>{{instance['id']}}</span></td>
-                                                <td><span>{{instance['name']}}</span></td>
-                                                <td><span>{{instance['status']}}</span></td>
+                                                <td><span>{{container['id']}}</span></td>
+                                                <td><span>{{container['name']}}</span></td>
+                                                <td><span>{{container['status']}}</span></td>
                                                 <td>
-                                                    <button type="button" class="btn btn-success btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="run_instance(`{{ instance['name'] }}`)">run</button>
+                                                    <button type="button" class="btn btn-success btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="run_instance(`{{ container['name'] }}`)">run</button>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-danger btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="stop_instance(`{{ instance['name'] }}`)">run</button>
+                                                    <button type="button" class="btn btn-danger btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="stop_instance(`{{ container['name'] }}`)">run</button>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-info btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="restart_instance(`{{ instance['name'] }}`)">restart</button>
+                                                    <button type="button" class="btn btn-info btn-sm rounded" style="opacity:1;width:65px;margin-top:5px" onclick="restart_instance(`{{ container['name'] }}`)">restart</button>
                                                 </td>
                                             </tr>
                                         {% endfor %}

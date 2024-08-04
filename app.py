@@ -16,7 +16,6 @@ app.config['UPLOAD_PATH'] = 'uploads/temp/'
 
 client = docker.from_env()
 
-@app.route('/containers')
 def list_containers():
     containers = client.containers.list(all=True)
     container_list = []
@@ -28,17 +27,6 @@ def list_containers():
             "image": container.image.tags[0] if container.image.tags else "No tag"
         })
     return jsonify(container_list)
-
-@app.route('/images')
-def list_images():
-    images = client.images.list()
-    image_list = []
-    for image in images:
-        image_list.append({
-            "id": image.short_id,
-            "tags": image.tags
-        })
-    return jsonify(image_list)
 
 @app.route('/run_instance', methods=['POST'])
 def run_instance():
@@ -98,7 +86,7 @@ def restart_instance():
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html')
+    return render_template('index.html', containers=list_containers())
 
 if __name__ == '__main__':
     app.run(debug=True)
