@@ -1,7 +1,7 @@
 # Docker Odoo 17.0 With PostgreSQL 15
 -by Craazybones- from Softnow
 
-![Alt text](https://github.com/ktalovmorx/softnow/blob/main/z_softnow-ptv_homes/odoo_postgres_python_docker.png?raw=true)
+![Alt text](https://github.com/ktalovmorx/docker_admin/blob/main/static/img/docker_logo.png?raw=true)
 
 
 <h3> Resumen </h3>
