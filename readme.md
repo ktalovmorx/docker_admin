@@ -28,10 +28,13 @@ cd docker_admin
 sudo ufw allow 68/tcp
 
 En primer plano
-gunicorn --workers 4 --bind 0.0.0.0:5000 wsgi:application
+gunicorn --workers 1 --bind 0.0.0.0:5000 wsgi:application
 
 En segundo Plano
-gunicorn --daemon --workers 4 --bind 0.0.0.0:5000 wsgi:application
+gunicorn --daemon --workers 1 --bind 0.0.0.0:5000 wsgi:application
+
+Numero Workers = 2 * Total_de_nucles_CPU + 1
+Para mi caso utilizo solo 1 porque esto es un proyecto personal
 ```
 
 <h3>José Ernesto Morales Ventura | San Cristóbal | República Dominicana</h3>
