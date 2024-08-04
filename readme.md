@@ -7,7 +7,8 @@
 <h3> Resumen </h3>
 
 ```
-    Permite gestionar de manera gráfica las instancias de dockers
+    Un mini gestor gráfico para controlar nuestras instancias de docker.
+    Al momento con opciones para iniciar,detener y/o reiniciar instancias.
 ```
 
 <h3> Instalación </h3>
