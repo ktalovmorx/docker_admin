@@ -1,4 +1,4 @@
-# Docker Grafic Controller
+# Docker Grafics Controller
 -by craazybones- from Softnow
 
 ![Alt text](https://github.com/ktalovmorx/docker_admin/blob/main/static/img/docker_logo.png?raw=true)
