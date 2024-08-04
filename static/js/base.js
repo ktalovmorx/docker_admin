@@ -12,16 +12,10 @@ function run_instance(name){
         })
         .then(response => response.json())
         .then(data => {
-            //document.getElementById('report_win_btn').disabled = true;
-            //document.getElementById('report_loss_btn').disabled = true;
-            Swal.fire({
-              title: 'Recibido',
-              text: data.message,
-              icon: "info",
-              confirmButtonText: "OK"
-            });
-            /*Actualizar monto a colocar para que administrador sepa lo que ocurre*/
-            console.log(data);
+          alert(data);
+          setTimeout(function() {
+              location.reload(); // Recarga la página actual
+              }, 2000);
         }).catch(error => {
           // Manejar cualquier error que ocurra
           console.error(error);
@@ -43,16 +37,10 @@ function stop_instance(name){
         })
         .then(response => response.json())
         .then(data => {
-            //document.getElementById('report_win_btn').disabled = true;
-            //document.getElementById('report_loss_btn').disabled = true;
-            Swal.fire({
-              title: 'Recibido',
-              text: data.message,
-              icon: "info",
-              confirmButtonText: "OK"
-            });
-            /*Actualizar monto a colocar para que administrador sepa lo que ocurre*/
-            console.log(data);
+          alert(data);
+          setTimeout(function() {
+              location.reload(); // Recarga la página actual
+              }, 2000);
         }).catch(error => {
           // Manejar cualquier error que ocurra
           console.error(error);
@@ -74,16 +62,10 @@ function restart_instance(name){
       })
       .then(response => response.json())
       .then(data => {
-          //document.getElementById('report_win_btn').disabled = true;
-          //document.getElementById('report_loss_btn').disabled = true;
-          Swal.fire({
-            title: 'Recibido',
-            text: data.message,
-            icon: "info",
-            confirmButtonText: "OK"
-          });
-          /*Actualizar monto a colocar para que administrador sepa lo que ocurre*/
-          console.log(data);
+        alert(data);
+        setTimeout(function() {
+            location.reload(); // Recarga la página actual
+            }, 2000);
       }).catch(error => {
         // Manejar cualquier error que ocurra
         console.error(error);
