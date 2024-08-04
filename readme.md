@@ -41,7 +41,7 @@ Para mi caso utilizo solo 1 porque esto es un proyecto personal
 <h2> Prueba de carga con Apache Bench</h2>
 
 ```
-ab -n 1000 -c 50 http://127.0.0.1:8000/
+ab -n 1000 -c 50 http://localhost:5000/
 
 -n 1000: Envía 1000 solicitudes en total.
 -c 50: Usa 50 conexiones simultáneas.
