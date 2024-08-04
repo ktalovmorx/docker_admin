@@ -26,7 +26,7 @@ def list_containers():
             "status": container.status,
             "image": container.image.tags[0] if container.image.tags else "No tag"
         })
-    return jsonify(container_list)
+    return container_list
 
 @app.route('/run_instance', methods=['POST'])
 def run_instance():

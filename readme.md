@@ -24,6 +24,8 @@ pip3 install gunicorn
 git clone https://github.com/ktalovmorx/docker_admin.git
 cd docker_admin
 
+sudo ufw allow 68/tcp
+
 En primer plano
 gunicorn --workers 4 --bind 0.0.0.0:5000 wsgi:application
 
