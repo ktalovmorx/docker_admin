@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 __author__ = 'Jose E. Morales Ventura'
-__date__ = '23/01/2024'
+__date__ = '08/Aug/2024'
 __description__ = "-"
 __url__ = "https://softnow-ptv.homes"
 
@@ -41,4 +41,4 @@ def list_images():
     return jsonify(image_list)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000, host="66.29.133.201")
+    app.run(debug=True, port=5000)
