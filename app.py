@@ -20,11 +20,22 @@ def list_containers():
     containers = client.containers.list(all=True)
     container_list = []
     for container in containers:
+
+        # Obtener los puertos expuestos
+        ports = container.attrs['NetworkSettings']['Ports']
+        # Crear un diccionario para almacenar la información de los puertos
+        port_info = {}
+        for port, mappings in ports.items():
+            if mappings:
+                # Si hay mapeos, agregar el puerto al diccionario
+                port_info[port] = [mapping['HostPort'] for mapping in mappings]
+
         container_list.append({
             "id": container.short_id,
             "name": container.name,
             "status": container.status,
-            "image": container.image.tags[0] if container.image.tags else "No tag"
+            "image": container.image.tags[0] if container.image.tags else "No tag",
+            "ports":port_info
         })
     return container_list
 
