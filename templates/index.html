@@ -54,6 +54,7 @@
                                             <th>RUN</th>
                                             <th>STOP</th>
                                             <th>RESTART</th>
+                                            <th>PORTS</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -72,6 +73,7 @@
                                                     <td>
                                                         <button type="button" class="btn btn-info btn-sm rounded" style="opacity:1;width:75px" onclick="restart_instance(`{{ container['name'] }}`)">RESTART</button>
                                                     </td>
+                                                    <td><span>{{container['ports']}}</span></td>
                                                 </tr>
                                             {% endif %}
                                         {% endfor %}
@@ -108,6 +110,7 @@
                                             <th>RUN</th>
                                             <th>STOP</th>
                                             <th>RESTART</th>
+                                            <th>PORTS</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -126,6 +129,7 @@
                                                     <td>
                                                         <button type="button" class="btn btn-info btn-sm rounded" style="opacity:1;width:75px;margin-top:5px" onclick="restart_instance(`{{ container['name'] }}`)">RESTART</button>
                                                     </td>
+                                                    <td><span>{{container['ports']}}</span></td>
                                                 </tr>
                                             {% endif %}
                                         {% endfor %}
