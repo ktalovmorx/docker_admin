@@ -58,7 +58,7 @@ def run_instance():
     try:
         container = client.containers.get(container_name)
         container.start()
-        return jsonify({'response':True, 'message':f'Instance {container_name} started successfully'})
+        return jsonify({'response':True, 'message':f'Instance {container_name} was started successfully'})
     except docker.errors.NotFound:
         return jsonify({'response':True, 'message':f"Contenedor con ID o nombre '{container_name}' no encontrado."})
     except Exception as e:
@@ -84,7 +84,7 @@ def stop_instance():
     try:
         container = client.containers.get(container_name)
         container.stop()
-        return jsonify({'response':True, 'message':f'Instance {container_name} stopped successfully'})
+        return jsonify({'response':True, 'message':f'Instance {container_name} was stopped successfully'})
     except docker.errors.NotFound:
         return jsonify({'response':True, 'message':f"Contenedor con ID o nombre '{container_name}' no encontrado."})
     except Exception as e:
@@ -110,7 +110,7 @@ def restart_instance():
     try:
         container = client.containers.get(container_name)
         container.restart()
-        return jsonify({'response':True, 'message':f'Instance {container_name} restarted successfully'})
+        return jsonify({'response':True, 'message':f'Instance {container_name} was restarted successfully'})
     except docker.errors.NotFound:
         return jsonify({'response':True, 'message':f"Contenedor con ID o nombre '{container_name}' no encontrado."})
     except Exception as e:
