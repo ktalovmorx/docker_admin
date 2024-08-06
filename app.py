@@ -60,9 +60,9 @@ def run_instance():
         container.start()
         return jsonify({'response':True, 'message':f'Instance {container_name} was started successfully'})
     except docker.errors.NotFound:
-        return jsonify({'response':True, 'message':f"Contenedor con ID o nombre '{container_name}' no encontrado."})
+        return jsonify({'response':False, 'message':f"ID or name '{container_name}' not found."})
     except Exception as e:
-        return jsonify({'response':True, 'message':f"Error al inicializar el contenedor: {str(e)}"})
+        return jsonify({'response':False, 'message':f"Error updating container: {str(e)}"})
 
 @app.route('/stop_instance', methods=['POST'])
 def stop_instance():
@@ -86,9 +86,9 @@ def stop_instance():
         container.stop()
         return jsonify({'response':True, 'message':f'Instance {container_name} was stopped successfully'})
     except docker.errors.NotFound:
-        return jsonify({'response':True, 'message':f"Contenedor con ID o nombre '{container_name}' no encontrado."})
+        return jsonify({'response':False, 'message':f"ID or name '{container_name}' not found."})
     except Exception as e:
-        return jsonify({'response':True, 'message':f"Error al detener el contenedor: {str(e)}"})
+        return jsonify({'response':False, 'message':f"Error updating container: {str(e)}"})
 
 @app.route('/restart_instance', methods=['POST'])
 def restart_instance():
@@ -112,9 +112,9 @@ def restart_instance():
         container.restart()
         return jsonify({'response':True, 'message':f'Instance {container_name} was restarted successfully'})
     except docker.errors.NotFound:
-        return jsonify({'response':True, 'message':f"Contenedor con ID o nombre '{container_name}' no encontrado."})
+        return jsonify({'response':False, 'message':f"ID or name '{container_name}' not found."})
     except Exception as e:
-        return jsonify({'response':True, 'message':f"Error al reiniciar el contenedor: {str(e)}"})
+        return jsonify({'response':False, 'message':f"Error updating container: {str(e)}"})
 
 @app.route('/', methods=['GET'])
 def index():
