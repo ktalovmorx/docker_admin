@@ -12,9 +12,7 @@ function run_instance(name){
         .then(response => response.json())
         .then(data => {
           alert(data['message']);
-          setTimeout(function() {
-              location.reload(); // Recarga la página actual
-              }, 2000);
+          setTimeout(function() {location.reload();}, 2000);
         }).catch(error => {
           // Manejar cualquier error que ocurra
           console.error(error);
@@ -36,9 +34,7 @@ function stop_instance(name){
         .then(response => response.json())
         .then(data => {
           alert(data['message']);
-          setTimeout(function() {
-              location.reload(); // Recarga la página actual
-              }, 2000);
+          setTimeout(function() {location.reload();}, 2000);
         }).catch(error => {
           // Manejar cualquier error que ocurra
           console.error(error);
@@ -60,9 +56,7 @@ function restart_instance(name){
       .then(response => response.json())
       .then(data => {
         alert(data['message']);
-        setTimeout(function() {
-            location.reload(); // Recarga la página actual
-            }, 2000);
+        setTimeout(function() {location.reload();}, 2000);
       }).catch(error => {
         // Manejar cualquier error que ocurra
         console.error(error);
