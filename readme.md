@@ -1,4 +1,4 @@
-# Docker Grafics Controller
+# Docker Instance Controller
 -by craazybones- from Softnow
 
 ![Alt text](https://github.com/ktalovmorx/docker_admin/blob/main/static/img/docker_logo.png?raw=true)
